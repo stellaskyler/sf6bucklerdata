@@ -1,8 +1,9 @@
-Street Fighter Player Data Scraper
+####Street Fighter Player Data Scraper
 
 This Python script is designed to scrape player data from the Street Fighter website. The collected data can be used for a variety of purposes, such as data analysis, machine learning, and statistical modeling.
 
-Methodology
+
+###Methodology
 
 The aim of this project is to gather a representative sample of player data from each rank category in the Street Fighter player population. The scraper is designed to collect data from 2500 players per rank, ensuring a substantial and diverse dataset.
 
@@ -14,7 +15,8 @@ In cases where consecutive errors occur, such as failed requests due to server i
 
 The data collection process continues until the scraper has collected the target number of samples for each rank category. At this point, the data is written to a CSV file and the scraping process terminates.
 
-How to Run
+
+###How to Run
 
     Ensure you have Python 3 installed, along with the required packages. The main requirements are Scrapy and Selenium.
 
@@ -23,15 +25,17 @@ How to Run
     In the script, replace the file path in the close method with the path where you want the output CSV file to be saved.
 
     Run the script. When the script opens the Street Fighter website in Firefox, manually log in and press Enter in the console to continue the scraping process.
+    
 
-Output
+###Output
 
 The script outputs a CSV file containing the scraped player data. Each row represents one player, with columns for username, rank, main character, total number of matches played, and win count.
 
-Custom Settings
+
+###Custom Settings
 
 The scraper is configured with several custom settings to optimize the scraping process and handle potential errors. These settings include parameters for retry times, HTTP response codes to retry, download delay, concurrent requests, user agent rotation, and more.
 
-Disclaimer
+###Disclaimer
 
 Please note that web scraping should be performed in accordance with the terms of service of the website being scraped and any applicable laws. This script is provided for educational purposes only. Always ensure that your web scraping activities are legal and ethical.
