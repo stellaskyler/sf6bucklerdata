@@ -1,4 +1,4 @@
-# Street Fighter Player Data Scraper
+# Street Fighter Buckler Data
 
 This Python script is designed to scrape player data from the Street Fighter website. The collected data can be used for a variety of purposes, such as data analysis, machine learning, and statistical modeling.
 
