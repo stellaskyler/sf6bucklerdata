@@ -15,7 +15,7 @@ You need to have Python installed on your machine. You can download Python from 
 1. Clone this repository to your local machine. You can do this by running the following command in your terminal:
 
    ```bash
-   git clone [https://github.com/stellaskyler/sf6bucklerdata.git]
+   git clone https://github.com/stellaskyler/sf6bucklerdata.git
    ```
 
    ```bash
