@@ -14,6 +14,6 @@ class RetryChangeProxyMiddleware(RetryMiddleware):
         super().__init__(settings)
 
     def process_response(self, request, response, spider):
-        if response.status in [403, 401, 429, 405]:
+        if response.status in [403, 401, 429, 405, 500]:
             return self._retry(request, f'{response.status} error', spider) or response
         return response
