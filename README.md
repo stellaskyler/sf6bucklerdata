@@ -1,43 +1,62 @@
-# Street Fighter Buckler Data
+# Street Fighter Data Analysis
 
-This Python script is designed to scrape player data from the Street Fighter website. The collected data can be used for a variety of purposes, such as data analysis, machine learning, and statistical modeling.
+This project scrapes Street Fighter player data and performs statistical analysis to investigate the distribution of player skills across various ranks.
 
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+You need to have Python installed on your machine. You can download Python from here: [https://www.python.org/downloads/](https://www.python.org/downloads/)
+
+### Installing
+
+1. Clone this repository to your local machine. You can do this by running the following command in your terminal:
+
+   ```bash
+   git clone https://github.com/yourusername/yourrepository.git
+   ```
+
+   Make sure to replace `https://github.com/yourusername/yourrepository.git` with the URL of your actual repository.
+
+2. Navigate into the project directory:
+
+   ```bash
+   cd my_scrapy_project
+   ```
+
+3. Install the required Python packages:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. You're all set! You can now run the project.
+
+### Running the Project
+
+To run the project, simply run the following command in your terminal:
+
+```bash
+python main.py
+```
+
+This command starts the `CrawlerProcess` and begins the scraping and analysis.
+
+## Project Structure
+
+The project is organized into several files:
+
+- `main.py`: This is the entry point of the project. It starts the `CrawlerProcess`.
+- `spiders/street_fighter_spider.py`: This file contains the `StreetFighterSpider` class which defines the scraping logic.
+- `middlewares.py`: This file contains the `RandomUserAgentMiddleware` and `RetryChangeProxyMiddleware` classes, which handle rotation of user agents and retrying of requests with a different proxy.
+- `requirements.txt`: This file lists the Python packages that the project depends on.
 
 ## Methodology
 
-The aim of this project is to gather a representative sample of player data from each rank category in the Street Fighter player population. The scraper is designed to collect data from 2500 players per rank, ensuring a substantial and diverse dataset.
+The project begins by scraping data from the Street Fighter ranking pages. For each rank, it randomly selects pages and scrapes data for all players listed on these pages. It then visits each player's profile page to get more detailed data, such as the number of matches played and the number of wins.
 
-The scraper determines the number of pages to sample from for each rank category by dividing the total number of players in that rank category by 20 (the number of players listed on each ranking page). The scraper then selects a random set of these pages for data collection, ensuring that the same page is not sampled more than once.
+The data is then filtered to exclude players who have played less than 240 matches. This is to ensure that the data is statistically significant.
 
-On each sampled page, the scraper collects data from all the players listed. The data includes the player's username, rank, main character, total number of matches played, and win count. The scraper only collects data from players who have played at least 240 matches in total. This threshold was chosen to ensure that the dataset only includes players who have a significant level of experience. The number 240 was derived from the assumption that a player would have enough experience if they had played against each character in the game at least 10 times, which approximates to around 8 hours of playtime.
-
-In cases where consecutive errors occur, such as failed requests due to server issues or network problems, the scraper employs an exponential backoff with jitter strategy. This strategy dynamically increases the delay between requests, helping manage the load on the server and minimizing the risk of the scraper being blocked by the website.
-
-The data collection process continues until the scraper has collected the target number of samples for each rank category. At this point, the data is written to a CSV file and the scraping process terminates.
-
-
-## How to Run
-
-    Ensure you have Python 3 installed, along with the required packages. The main requirements are Scrapy and Selenium.
-
-    Download the Python script.
-
-    In the script, replace the file path in the close method with the path where you want the output CSV file to be saved.
-
-    In the script, add whatever user agents you want to the Custom Settings. Make sure you have the corresponding browser driver.
-
-    Run the script. When the script opens the Street Fighter website in Firefox, manually log in and press Enter in the console to continue the scraping process.
-    
-
-## Output
-
-The script outputs a CSV file containing the scraped player data. Each row represents one player, with columns for username, rank, main character, total number of matches played, and win count.
-
-
-## Custom Settings
-
-The scraper is configured with several custom settings to optimize the scraping process and handle potential errors. These settings include parameters for retry times, HTTP response codes to retry, download delay, concurrent requests, user agent rotation, and more.
-
-## Disclaimer
-
-Please note that web scraping should be performed in accordance with the terms of service of the website being scraped and any applicable laws. This script is provided for educational purposes only. Always ensure that your web scraping activities are legal and ethical.
+The filtered data is then analyzed to calculate the win rate for each player. This data is then used to investigate the distribution of player skills across various ranks.
