@@ -24,6 +24,8 @@ The data collection process continues until the scraper has collected the target
 
     In the script, replace the file path in the close method with the path where you want the output CSV file to be saved.
 
+    In the script, add whatever user agents you want to the Custom Settings. Make sure you have the corresponding browser driver.
+
     Run the script. When the script opens the Street Fighter website in Firefox, manually log in and press Enter in the console to continue the scraping process.
     
 
