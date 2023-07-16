@@ -17,20 +17,23 @@ You will also need to have Firefox installed on your machine, as the project use
 
 ## Project Structure
 
-The project consists of three main Python files:
+The project consists of several Python files organized into the following structure:
 
 - `main.py`
-- `spiders/middlewares.py`
+- `config.py`
 - `spiders/street_fighter_spider.py`
+- `spiders/middlewares.py`
 
 `main.py` is the main script that configures and starts a Scrapy process with the `StreetFighterSpider` spider.
+
+`config.py` contains the logging configuration and the common settings for the spiders.
+
+`spiders/street_fighter_spider.py` contains the `StreetFighterSpider` spider class.
 
 `spiders/middlewares.py` contains two middleware classes: `RandomUserAgentMiddleware` and `RetryChangeProxyMiddleware`.
 
 - `RandomUserAgentMiddleware` sets a random User-Agent for each request to help avoid getting blocked by the site.
 - `RetryChangeProxyMiddleware` handles failed requests and retries them after adjusting the delay.
-
-`spiders/street_fighter_spider.py` contains the `StreetFighterSpider` spider class.
 
 ## How the Spider Works
 
@@ -47,9 +50,10 @@ For each rank in the game, it randomly samples pages and fetches player data. It
 Once it has collected enough samples for a rank, it writes the data to a CSV file and moves on to the next rank.
 
 If the spider encounters an error while fetching a page, it retries the request with an exponential backoff delay. This helps to handle temporary issues like network errors or server overloads.
-Output
 
-The spider writes the scraped data to CSV files. There is a separate file for each rank. The files are named like output_{rank}.csv, where {rank} is the rank of the players in the file.
+## Output
+
+The spider writes the scraped data to CSV files. There is a separate file for each rank. The files are named like `output_{rank}.csv`, where `{rank}` is the rank of the players in the file.
 
 Each row in the CSV files contains the following fields:
 
@@ -71,9 +75,9 @@ Before running, update the players_per_rank in the spider to reflect current num
 
 You can run the scraper from your terminal using the following command:
 
+   ```shell
    python main.py
-
-   
+   ```
 
 ## Disclaimer and Liability
 
