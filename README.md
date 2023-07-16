@@ -1,58 +1,40 @@
-# Street Fighter Data Analysis
+# Street Fighter Spider
 
-This project scrapes Street Fighter player data and performs statistical analysis to investigate the distribution of player skills across various ranks.
+Street Fighter Spider is a Python web scraper based on Scrapy that scrapes the Street Fighter gaming site for player data. It uses Selenium for dealing with JavaScript and to control the flow of the application.
 
-## Getting Started
+## Requirements
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+This project requires Python 3.7+ and the following Python libraries installed:
 
-### Prerequisites
+- Scrapy
+- Selenium
+- json
+- csv
+- collections
+- logging
 
-You need to have Python installed on your machine. You can download Python from here: [https://www.python.org/downloads/](https://www.python.org/downloads/)
-
-### Installing
-
-1. Clone this repository to your local machine. You can do this by running the following command in your terminal:
-
-   ```bash
-   git clone https://github.com/stellaskyler/sf6bucklerdata.git
-   ```
-
-   ```bash
-   cd my_scrapy_project
-   ```
-
-3. Install the required Python packages:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. You're all set! You can now run the project.
-
-### Running the Project
-
-To run the project, simply run the following command in your terminal:
-
-```bash
-python main.py
-```
-
-This command starts the `CrawlerProcess` and begins the scraping and analysis.
+You will also need to have Firefox installed on your machine, as the project uses the Firefox webdriver for Selenium.
 
 ## Project Structure
 
-The project is organized into several files:
+The project consists of three main Python files:
 
-- `main.py`: This is the entry point of the project. It starts the `CrawlerProcess`.
-- `spiders/street_fighter_spider.py`: This file contains the `StreetFighterSpider` class which defines the scraping logic.
-- `middlewares.py`: This file contains the `RandomUserAgentMiddleware` and `RetryChangeProxyMiddleware` classes, which handle rotation of user agents and retrying of requests with a different proxy.
-- `requirements.txt`: This file lists the Python packages that the project depends on.
+- `main.py`
+- `spiders/middlewares.py`
+- `spiders/street_fighter_spider.py`
 
-## Methodology
+`main.py` is the main script that configures and starts a Scrapy process with the `StreetFighterSpider` spider.
 
-The project begins by scraping data from the Street Fighter ranking pages. For each rank, it randomly selects pages and scrapes data for all players listed on these pages. It then visits each player's profile page to get more detailed data, such as the number of matches played and the number of wins.
+`spiders/middlewares.py` contains two middleware classes: `RandomUserAgentMiddleware` and `RetryChangeProxyMiddleware`.
 
-The data is then filtered to exclude players who have played less than 240 matches. This is to ensure that the data is statistically significant.
+- `RandomUserAgentMiddleware` sets a random User-Agent for each request to help avoid getting blocked by the site.
+- `RetryChangeProxyMiddleware` handles failed requests and retries them after adjusting the delay.
 
-The filtered data is then analyzed to calculate the win rate for each player. This data is then used to investigate the distribution of player skills across various ranks.
+`spiders/street_fighter_spider.py` contains the `StreetFighterSpider` spider class. This spider fetches player data and writes it into CSV files. It uses Selenium to handle pages that contain JavaScript and also implements retry logic and request delay adjustment based on consecutive failed requests.
+
+## How to Run
+
+You can run the scraper from your terminal using the following command:
+
+```shell
+python main.py
