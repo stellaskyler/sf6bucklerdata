@@ -30,13 +30,15 @@ The project consists of three main Python files:
 - `RandomUserAgentMiddleware` sets a random User-Agent for each request to help avoid getting blocked by the site.
 - `RetryChangeProxyMiddleware` handles failed requests and retries them after adjusting the delay.
 
-`spiders/street_fighter_spider.py` contains the `StreetFighterSpider` spider class. This spider fetches player data and writes it into CSV files. It uses Selenium to handle pages that contain JavaScript and also implements retry logic and request delay adjustment based on consecutive failed requests.
+`spiders/street_fighter_spider.py` contains the `StreetFighterSpider` spider class.
+
+## How the Spider Works
+
+This spider fetches player data and writes it into CSV files. It uses Selenium to handle pages that contain JavaScript and also implements retry logic and request delay adjustment based on consecutive failed requests.
 
 Before the scraper can start, it will open Firefox and navigate to the Street Fighter site. You will need to log in manually, and then press Enter in your terminal to continue.
 
 Please note that the scraper needs to be run from a command-line interface, like Terminal on MacOS or Command Prompt / PowerShell on Windows.
-
-## How the Spider Works
 
 The spider works by first logging into the Street Fighter site and then navigating to different pages to collect player data.
 
