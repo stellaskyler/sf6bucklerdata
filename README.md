@@ -71,5 +71,20 @@ Before running, update the players_per_rank in the spider to reflect current num
 
 You can run the scraper from your terminal using the following command:
 
-```shell
-python main.py
+   python main.py
+
+   
+
+## Disclaimer and Liability
+
+Please be advised that this repository is provided for instructional and educational purposes only.
+
+The data scraping practices demonstrated in this repository must be used responsibly and ethically. Always respect the terms of service of any website or online service you interact with. Be aware that improper use of data scraping techniques can violate the terms of service of some websites or even local laws and regulations.
+
+Under no circumstances should the code be used for any illegal or unethical activities. The authors of this repository disclaim all liability for any damage, loss, or consequence caused directly or indirectly by the use or inability to use the information or code contained within this repository.
+
+Please use this code responsibly and consider the potential impact on servers, respect privacy, and adhere to all relevant terms of service and laws. If you choose to use the code provided in this repository, you do so at your own risk.
+
+## License
+
+This project is licensed under the MIT License. This license does not include the right to use this code, or any derivative work thereof, for any illegal or unethical activities. By using or adapting this code, you agree to assume all liability and responsibility for your actions.
