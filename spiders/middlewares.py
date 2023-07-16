@@ -15,5 +15,8 @@ class RetryChangeProxyMiddleware(RetryMiddleware):
 
     def process_response(self, request, response, spider):
         if response.status in [403, 401, 429, 405, 500]:
+            spider.consecutive_errors += 1  # Increment the error count
+            spider.adjust_delay()  # Adjust the delay based on the error count
             return self._retry(request, f'{response.status} error', spider) or response
+        spider.consecutive_errors = 0  # Reset the error count if the page is successfully parsed
         return response
