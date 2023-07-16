@@ -67,6 +67,8 @@ Each row in the CSV files contains the following fields:
 
 ## How to Run
 
+Before running, update the players_per_rank in the spider to reflect current numbers, check and/or change the user agents, and check/change the output file.
+
 You can run the scraper from your terminal using the following command:
 
 ```shell
