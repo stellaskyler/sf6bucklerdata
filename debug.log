@@ -1,0 +1,61 @@
+2023-07-16 13:17:49,781 [INFO] Scrapy 2.9.0 started (bot: scrapybot)
+2023-07-16 13:17:49,782 [INFO] Versions: lxml 4.9.2.0, libxml2 2.9.12, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.7.9 (tags/v3.7.9:13c94747c7, Aug 17 2020, 16:30:00) [MSC v.1900 64 bit (AMD64)], pyOpenSSL 23.2.0 (OpenSSL 3.1.1 30 May 2023), cryptography 41.0.1, Platform Windows-10-10.0.22000-SP0
+2023-07-16 13:17:49,786 [INFO] Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'AUTOTHROTTLE_START_DELAY': 0.5,
+ 'CONCURRENT_REQUESTS': 32,
+ 'DOWNLOAD_DELAY': 0.5,
+ 'HTTPCACHE_ENABLED': True,
+ 'RETRY_HTTP_CODES': [403, 401, 429, 405],
+ 'RETRY_TIMES': 5}
+2023-07-16 13:17:49,802 [WARNING] C:\Users\ryanf\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\LocalCache\local-packages\Python37\site-packages\scrapy\utils\request.py:232: ScrapyDeprecationWarning: '2.6' is a deprecated value for the 'REQUEST_FINGERPRINTER_IMPLEMENTATION' setting.
+
+It is also the default value. In other words, it is normal to get this warning if you have not defined a value for the 'REQUEST_FINGERPRINTER_IMPLEMENTATION' setting. This is so for backward compatibility reasons, but it will change in a future version of Scrapy.
+
+See the documentation of the 'REQUEST_FINGERPRINTER_IMPLEMENTATION' setting for information on how to handle this deprecation.
+  return cls(crawler)
+
+2023-07-16 13:17:49,812 [DEBUG] Using reactor: twisted.internet.selectreactor.SelectReactor
+2023-07-16 13:17:49,850 [INFO] Telnet Password: 457f8baf4bc20b5f
+2023-07-16 13:17:49,950 [INFO] Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2023-07-16 13:17:49,959 [DEBUG] Applicable driver not found; attempting to install with Selenium Manager (Beta)
+2023-07-16 13:17:49,960 [DEBUG] Executing process: C:\Users\ryanf\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\LocalCache\local-packages\Python37\site-packages\selenium\webdriver\common\windows\selenium-manager.exe --browser firefox --output json
+2023-07-16 13:17:51,378 [DEBUG] C:\Users\ryanf\.cache\selenium\geckodriver\win64\0.33.0\geckodriver.exe
+2023-07-16 13:17:51,379 [DEBUG] Using driver at: C:\Users\ryanf\.cache\selenium\geckodriver\win64\0.33.0\geckodriver.exe
+2023-07-16 13:17:51,386 [DEBUG] Started executable: `C:\Users\ryanf\.cache\selenium\geckodriver\win64\0.33.0\geckodriver.exe` in a child process with pid: 5748
+2023-07-16 13:17:52,421 [DEBUG] POST http://localhost:51458/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "firefox", "acceptInsecureCerts": true, "moz:debuggerAddress": true, "pageLoadStrategy": "normal"}}}
+2023-07-16 13:17:52,425 [DEBUG] Starting new HTTP connection (1): localhost:51458
+2023-07-16 13:17:57,745 [DEBUG] http://localhost:51458 "POST /session HTTP/1.1" 200 0
+2023-07-16 13:17:57,746 [DEBUG] Remote response: status=200 | data={"value":{"sessionId":"586a77bb-207b-4a53-9d6d-14ea11f0c5cf","capabilities":{"acceptInsecureCerts":true,"browserName":"firefox","browserVersion":"115.0.2","moz:accessibilityChecks":false,"moz:buildID":"20230710165010","moz:debuggerAddress":"127.0.0.1:51459","moz:geckodriverVersion":"0.33.0","moz:headless":false,"moz:platformVersion":"10.0","moz:processID":8716,"moz:profile":"C:\\Users\\ryanf\\AppData\\Local\\Temp\\rust_mozprofileFmwdCG","moz:shutdownTimeout":60000,"moz:useNonSpecCompliantPointerOrigin":false,"moz:webdriverClick":true,"moz:windowless":false,"pageLoadStrategy":"normal","platformName":"windows","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify"}}} | headers=HTTPHeaderDict({'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-cache', 'content-length': '790', 'date': 'Sun, 16 Jul 2023 20:17:54 GMT'})
+2023-07-16 13:17:57,748 [DEBUG] Finished Request
+2023-07-16 13:17:57,814 [CRITICAL] Unhandled error in Deferred:
+2023-07-16 13:17:57,838 [CRITICAL] 
+Traceback (most recent call last):
+  File "C:\Users\ryanf\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\LocalCache\local-packages\Python37\site-packages\scrapy\utils\misc.py", line 68, in load_object
+    obj = getattr(mod, name)
+AttributeError: module '__main__' has no attribute 'RandomUserAgentMiddleware'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ryanf\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\LocalCache\local-packages\Python37\site-packages\twisted\internet\defer.py", line 1697, in _inlineCallbacks
+    result = context.run(gen.send, result)
+  File "C:\Users\ryanf\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\LocalCache\local-packages\Python37\site-packages\scrapy\crawler.py", line 129, in crawl
+    self.engine = self._create_engine()
+  File "C:\Users\ryanf\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\LocalCache\local-packages\Python37\site-packages\scrapy\crawler.py", line 143, in _create_engine
+    return ExecutionEngine(self, lambda _: self.stop())
+  File "C:\Users\ryanf\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\LocalCache\local-packages\Python37\site-packages\scrapy\core\engine.py", line 100, in __init__
+    self.downloader: Downloader = downloader_cls(crawler)
+  File "C:\Users\ryanf\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\LocalCache\local-packages\Python37\site-packages\scrapy\core\downloader\__init__.py", line 97, in __init__
+    DownloaderMiddlewareManager.from_crawler(crawler)
+  File "C:\Users\ryanf\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\LocalCache\local-packages\Python37\site-packages\scrapy\middleware.py", line 68, in from_crawler
+    return cls.from_settings(crawler.settings, crawler)
+  File "C:\Users\ryanf\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\LocalCache\local-packages\Python37\site-packages\scrapy\middleware.py", line 43, in from_settings
+    mwcls = load_object(clspath)
+  File "C:\Users\ryanf\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\LocalCache\local-packages\Python37\site-packages\scrapy\utils\misc.py", line 70, in load_object
+    raise NameError(f"Module '{module}' doesn't define any object named '{name}'")
+NameError: Module '__main__' doesn't define any object named 'RandomUserAgentMiddleware'
